@@ -1,0 +1,38 @@
+{
+    "version": 2,
+    "name": "2020 Countdown",
+    "alias": "2020.mystiar.com",
+    "builds": [
+        { 
+            "src": "*.html", 
+            "use": "@now/static"
+        },
+        {
+            "src": "src/css/*.css",
+            "use": "@now/static"
+        },
+        {
+            "src": "src/js/*.js",
+            "use": "@now/static"
+        },
+        {
+            "src": "src/img/*.png",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src":"/.*",
+            "headers": { 
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET",
+                "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept",
+                "cache-control": "public,max-age=31536000",
+                "Accept-Encoding": "br",
+                "Service-Worker-Allowed": "/",
+                "Vary": "Accept-Encoding"
+            } 
+        }
+    ],
+    "regions": ["all"]
+}
