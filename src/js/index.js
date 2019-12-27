@@ -1,9 +1,11 @@
-window.addEventListener("load", () => {
-	let layout = () => {
-		let applyDigit = value => (value < 10 ? `0${value}` : value.toString())
+let targetTime = new Date(2020,0,1,0,0,0) // 1 Jan 2020 00:00:00 in local time
 
-		let date = new Date(new Date("January 1, 2020 00:00:00") - new Date()),
-			day = Math.floor(date / (1000 * 60 * 60 * 24)).toString(),
+window.addEventListener("load", () => {
+	let applyDigit = value => (value < 10 ? `0${value}` : `${value}`)
+
+	let layout = () => {
+		let date = new Date(targetTime - Date.now()),
+			day = `${Math.floor(date / (1000 * 60 * 60 * 24))}`,
 			hour = applyDigit(Math.floor(date / (1000 * 60 * 60)) % 24),
 			minute = applyDigit(Math.floor(date / (1000 * 60)) % 60),
 			second = applyDigit(Math.floor(date / 1000) % 60),
